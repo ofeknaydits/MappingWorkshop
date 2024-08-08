@@ -29,7 +29,7 @@ from redis.commands.search.suggestion import Suggestion
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
-r = redis.Redis(decode_responses=True)
+r = redis.Redis(decode_responses=True, host="redis-14773.c15.us-east-1-2.ec2.redns.redis-cloud.com", port=14773, password="Redis12345")
 r.flushdb()
 ELEMENT_TYPES = ['airplane', 'motorcycle', 'bike', 'bird', 'person']
 TOTAL_ELEMENTS = 10000
