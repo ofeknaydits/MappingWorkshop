@@ -85,7 +85,7 @@ def generate_elements():
             'location': location,
             'polylocation': polylocation
         }
-        r.set(f'element:{i}', json.dumps(element))
+        r.json().set(f'element:{i}', Path.root_path(), element)
     print('Generated elements:', TOTAL_ELEMENTS)  # Debug print
 
 
