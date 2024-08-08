@@ -73,12 +73,19 @@ def generate_elements():
         lng = random.uniform(-180, 180)
         speed = random.uniform(0.01, 0.1)  # Random speed
         direction = random.uniform(0, 360)  # Random direction in degrees
+        type = random.choice(ELEMENT_TYPES)
+        location = f'{lng},{lat}'
+        polylocation = f'POINT ({lng} {lat})'
         element = {
             'speed': speed,
             'direction': direction,
             'lat': lat,
             'lng': lng,
+            'type': type,
+            'location': location,
+            'polylocation': polylocation
         }
+        r.set(f'element:{i}', json.dumps(element))
     print('Generated elements:', TOTAL_ELEMENTS)  # Debug print
 
 
